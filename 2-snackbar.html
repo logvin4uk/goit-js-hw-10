@@ -4,12 +4,39 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page 3</title>
+    
+    <title>Snackbar</title>
+    <script type="module" crossorigin src="/goit-js-hw-10/commonHelpers2.js"></script>
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/modulepreload-polyfill-3cfb730f.js">
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/vendor-9753a760.js">
+    <link rel="stylesheet" href="/goit-js-hw-10/assets/vendor-7a007824.css">
+    <link rel="stylesheet" href="/goit-js-hw-10/assets/2-snackbar-08ca4a43.css">
   </head>
   <body>
+    <a href="./index.html">Go back to menu</a>
     <section>
-      <a href="./index.html">Go to home</a>
-      <h1>Welcome to page 3</h1>
+      <form class="form">
+        <label class="delay-label">
+          Delay (ms)
+          <input class="delay" type="number" name="delay" required />
+        </label>
+
+        <fieldset class="options">
+          <legend class="delay-label">State</legend>
+          <label class="options-label">
+            <input type="radio" name="state" value="fulfilled" required />
+            Fulfilled
+          </label>
+          <label class="options-label">
+            <input type="radio" name="state" value="rejected" required />
+            Rejected
+          </label>
+        </fieldset>
+
+        <button class="btn" type="submit">Create notification</button>
+      </form>
     </section>
+
+    
   </body>
 </html>
