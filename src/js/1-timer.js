@@ -31,6 +31,12 @@ function addLeadingZero(value) {
 
 let userSelectedDate = null;
 
+const startButton = document.querySelector('[data-start]');
+const dateTimePicker = document.getElementById('datetime-picker');
+
+// Вимикаємо кнопку на першому завантаженні сторінки
+startButton.disabled = true;
+
 // Функція для оновлення інтерфейсу таймера
 function updateTimerDisplay(ms) {
   const { days, hours, minutes, seconds } = convertMs(ms);
@@ -72,22 +78,18 @@ function startTimer() {
       iziToast.success({
         title: 'Success',
         message: 'Countdown finished!',
+        position: 'topRight',
       });
-
-      // Робимо кнопку та поле неактивними після закінчення таймера
-      const startButton = document.querySelector('[data-start]');
-      const dateTimePicker = document.getElementById('datetime-picker');
-      startButton.disabled = true;
-      dateTimePicker.disabled = true;
-
-      // Повертаємо поле вводу та кнопку знову активними
-      // startButton.disabled = false;
-      // dateTimePicker.disabled = false;
 
       // Повернення таймера в початкове положення
       updateTimerDisplay(0);
+      startButton.disabled = false;
+      dateTimePicker.disabled = false;
     }
   }, 1000);
+  // Робимо кнопку та поле неактивними під час роботи таймера
+  startButton.disabled = true;
+  dateTimePicker.disabled = true;
 }
 // Ініціалізація flatpickr
 flatpickr('#datetime-picker', {
@@ -109,6 +111,7 @@ flatpickr('#datetime-picker', {
       iziToast.error({
         title: 'Error',
         message: 'Please choose a date in the future',
+        position: 'topRight',
       });
     } else {
       // Дата в майбутньому, робимо кнопку активною
