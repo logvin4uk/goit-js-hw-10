@@ -44,11 +44,12 @@ function updateTimerDisplay(ms) {
   document.querySelector('[data-hours]').textContent = addLeadingZero(hours);
   document.querySelector('[data-minutes]').textContent =
     addLeadingZero(minutes);
-  document.querySelector('[data-seconds').textContent = addLeadingZero(seconds);
+  document.querySelector('[data-seconds]').textContent =
+    addLeadingZero(seconds);
 }
 
 // Функція для старту таймера
-function startTimer() {
+function startCountdownTimer() {
   const currentDate = new Date();
   const difference = userSelectedDate - currentDate;
 
@@ -121,4 +122,6 @@ flatpickr('#datetime-picker', {
 });
 
 // Обробник події кліку на кнопку "Start"
-document.querySelector('[data-start]').addEventListener('click', startTimer);
+document
+  .querySelector('[data-start]')
+  .addEventListener('click', startCountdownTimer);
